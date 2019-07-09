@@ -1,0 +1,15 @@
+{
+    "global": {
+        "shared_cache": {
+            "capacity": "207940266"
+        },
+        "write_buffer_manager": {
+            "write_buffer_size": "1073741824"
+        },
+        "object_count": "9518",
+        "statistics": false
+    },
+    "base": {
+        "optimize_level_style_compaction": true
+    }
+}
