@@ -63,7 +63,7 @@ max_block_size = 64 * 1024
 
 if(available_ram<steemd_memory_need):
   print("\tYou can`t run 'steemd' on this host, you need to free at least %0.2f Gb RAM" % ((steemd_memory_need-available_ram)/bytes_per_gb))
-  sys.exit()
+  #sys.exit()
 
 object_count = int((available_ram-steemd_memory_need) / max_block_size)
 global_shared_capacity = int((available_ram-steemd_memory_need) / 3)
@@ -74,15 +74,17 @@ config = dict()
 config["global"] = {}
 config["global"]["shared_cache"] = {"capacity": "%i" % global_shared_capacity}
 config["global"]["write_buffer_manager"] = {"write_buffer_size": "%i" % write_buffer_size}
-config["global"]["object_count"] = "%i" % object_count
+config["global"]["object_count"] = object_count
 config["global"]["statistics"] = False
 config["base"] = {}
 config["base"]["optimize_level_style_compaction"] = True
-config["base"]["optimize_level_style_compaction"] = True
-config["base"]["optimize_level_style_compaction"] = True
-config["base"]["optimize_level_style_compaction"] = True
-config["base"]["optimize_level_style_compaction"] = True
-
+config["base"]["increase_parallelism"] = True
+config["base"]["block_based_table_options"] = {}
+config["base"]["block_based_table_options"]["block_size"] = 8192
+config["base"]["block_based_table_options"]["bloom_filter_policy"] = {}
+config["base"]["block_based_table_options"]["cache_index_and_filter_blocks"] = True
+config["base"]["block_based_table_options"]["bloom_filter_policy"]["bits_per_key"] = 10
+config["base"]["block_based_table_options"]["bloom_filter_policy"]["use_block_based_builder"] = False
 
 print("\tobject_count: %s" % str(object_count))
 print("\tglobal_shared_capacity: %i" % global_shared_capacity)
