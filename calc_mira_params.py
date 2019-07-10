@@ -56,7 +56,7 @@ max_ram = mem.total
 available_ram = mem.available
 #print(type(max_ram))
 
-print("Total RAM: %0.2f Gb" % ((max_ram)/(bytes_per_gb)))
+print("\nTotal RAM: %0.2f Gb" % ((max_ram)/(bytes_per_gb)))
 print("Avaliable RAM: %0.2f Gb" % (available_ram/bytes_per_gb))
 print("Average RAM needed for steemd process: %0.2f Gb" % (steemd_memory_need/bytes_per_gb))
 max_block_size = 64 * 1024
@@ -65,8 +65,8 @@ if(available_ram<steemd_memory_need):
   print("\tYou can`t run 'steemd' on this host, you need to free at least %0.2f Gb RAM" % ((steemd_memory_need-available_ram)/bytes_per_gb))
   sys.exit()
 
-object_count = int((available_ram-stemd_memory_usage) / max_block_size)
-global_shared_capacity = int((available_ram-stemd_memory_usage) / 3)
+object_count = int((available_ram-steemd_memory_need) / max_block_size)
+global_shared_capacity = int((available_ram-steemd_memory_need) / 3)
 write_buffer_size = 1073741824
 
 config = dict()
@@ -96,7 +96,7 @@ if(object_count>max_nr_of_open_files):
   else:
     print("\tPlease set the value manually with: $>ulimit -n %i" % (object_count + open_files_offset))
 
-answer = input("\tDo you want to save mira configuration file to %s " % config_file_name)
+answer = input("\nDo you want to save mira configuration file to %s ? (Y/N) " % config_file_name)
 if(answer=="Y"):
   print("Writting config file: '%s' with following calculated params...:\n" % config_file_name)
 with open(config_file_name, 'w') as outfile:  
