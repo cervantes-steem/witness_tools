@@ -1,3 +1,8 @@
+__author__ = "http://steemit.com/@cervantes"
+__copyright__ = "Copyright (C) 2019 steem's @cervantes"
+__license__ = "MIT"
+__version__ = "1.0"
+
 from psutil import virtual_memory
 import json
 
