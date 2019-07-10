@@ -5,6 +5,12 @@ __version__ = "1.0"
 
 from psutil import virtual_memory
 import json
+import resource
+import subprocess
+import os
+import pwd
+
+max_of_open_files =  resource.getrlimit(resource.RLIMIT_NOFILE)[0]
 
 
 '''
@@ -71,7 +77,9 @@ config["base"]["optimize_level_style_compaction"] = True
 print("Writting config file: '%s' with following calculated params...:\n" % config_file_name)
 print("\tobject_count: %s" % str(object_count))
 print("\tglobal_shared_capacity: %i" % global_shared_capacity)
-
+if(object_count<max_of_open_files):
+  print("The actual number of allowed open files is less than the suggested open count, please correct with:")
+  answer = input("Do you want to set the limit to %s ?" % object_count)
 
 with open(config_file_name, 'w') as outfile:  
     json.dump(config, outfile, indent=4)
