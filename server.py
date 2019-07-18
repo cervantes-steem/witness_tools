@@ -23,7 +23,7 @@ tasks = [
 def get_tasks():
     return jsonify({'tasks': tasks})
 
-@app.route('', methods=['GET'])
+@app.route('/api/get_debt_ratio', methods=['GET'])
 def get_debt_ration():
     return jsonify(calc_debt_ratio.get_debt_ratio())
 
