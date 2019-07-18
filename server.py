@@ -28,4 +28,4 @@ def get_debt_ration():
     return jsonify(calc_debt_ratio.get_debt_ratio())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
