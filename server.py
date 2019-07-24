@@ -1,4 +1,11 @@
 #!flask/bin/python
+
+__author__ = "http://steemit.com/@cervantes"
+__copyright__ = "Copyright (C) 2019 steem's @cervantes"
+__license__ = "MIT"
+__version__ = "1.0"
+
+
 from flask import Flask, jsonify
 import calc_debt_ratio
 
