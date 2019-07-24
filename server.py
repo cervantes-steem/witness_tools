@@ -19,9 +19,6 @@ tasks = [
     }
 ]
 
-@app.route('/todo/api/v1.0/tasks', methods=['GET'])
-def get_tasks():
-    return jsonify({'tasks': tasks})
 
 @app.route('/api/get_debt_ratio', methods=['GET'])
 def get_debt_ration():
