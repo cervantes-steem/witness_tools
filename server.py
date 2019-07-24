@@ -7,6 +7,7 @@ __version__ = "1.0"
 
 
 from flask import Flask, jsonify
+from waitress import serve
 import calc_debt_ratio
 
 app = Flask(__name__)
@@ -26,10 +27,10 @@ tasks = [
     }
 ]
 
-
 @app.route('/api/get_debt_ratio', methods=['GET'])
 def get_debt_ration():
     return jsonify(calc_debt_ratio.get_debt_ratio())
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    #app.run(debug=False, port=8081)
+    serve(app, host='0.0.0.0', port=8081)
