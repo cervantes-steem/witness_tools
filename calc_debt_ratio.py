@@ -40,7 +40,7 @@ def get_debt_ratio():
     result["virtual_supply"] = virtual_supply
     result["current_supply"] = current_supply
     result["current_sbd_supply"] = current_sbd_supply
-    #result["median_price_history"] = prices
+    result["median_price_history"] = prices
     result["median_price"] = median_price
     result["steem_market_cap"] = steem_market_cap
     result["debt_ratio"] = debt_ratio

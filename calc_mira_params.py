@@ -95,6 +95,10 @@ if(object_count>max_nr_of_open_files):
   answer = input("\tDo you want to set the limit to %i (object_count increased by an offset of %s? (Y/N) " % (object_count + open_files_offset, open_files_offset))
   if(answer=="Y"):
     print("\tSetting open file limit to: %i ..." % (object_count + open_files_offset))
+
+    cmd = "uname -n %s" % str(object_count + open_files_offset)
+    print(cmd)
+    os.system(cmd)
   else:
     print("\tPlease set the value manually with: $>ulimit -n %i" % (object_count + open_files_offset))
 
