@@ -96,7 +96,7 @@ if(object_count>max_nr_of_open_files):
   if(answer=="Y"):
     print("\tSetting open file limit to: %i ..." % (object_count + open_files_offset))
 
-    cmd = "uname -n %s" % str(object_count + open_files_offset)
+    cmd = "ulimit -n %s" % str(object_count + open_files_offset)
     print(cmd)
     os.system(cmd)
   else:
