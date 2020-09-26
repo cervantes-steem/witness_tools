@@ -1,7 +1,7 @@
-__author__ = "http://steemit.com/@cervantes"
-__copyright__ = "Copyright (C) 2019 steem's @cervantes"
+__author__ = "http://hive.blog/@cervantes"
+__copyright__ = "Copyright (C) 2020 hive's @cervantes"
 __license__ = "MIT"
-__version__ = "1.0"
+__version__ = "1.1"
 
 from beem import Steem
 
@@ -52,15 +52,15 @@ if __name__ == '__main__':
 
     result = get_debt_ratio()
 
-    print(result)
+    #print(result)
 
     print("\n")
-    print("################ SBD/STEEM DEBT RATIO #######")
-    print("virtual_supply: %s Mio STEEM" % str(round((result["virtual_supply"]/1000000),2)))
-    print("current_supply: %s Mio STEEM" % str(round((result["current_supply"]/1000000),2)))
-    print("current_sbd_supply: %s Mio SBD " % str(round((result["current_sbd_supply"]/1000000),2)))
+    print("################ HBD/HIVE DEBT RATIO #######")
+    print("virtual_supply: %s Mio HIVE" % str(round((result["virtual_supply"]/1000000),2)))
+    print("current_supply: %s Mio HIVE" % str(round((result["current_supply"]/1000000),2)))
+    print("current_sbd_supply: %s Mio HDB " % str(round((result["current_sbd_supply"]/1000000),2)))
     print("average_price_feed: %s $" % str(round(result["median_price"],5)))
-    print("steem_market_cap: %s Mio $" % str(round(result["steem_market_cap"]/1000000,3)))
+    print("hive_market_cap: %s Mio $" % str(round(result["steem_market_cap"]/1000000,3)))
     print("debt_ratio: %s %% " % str(round(result["debt_ratio"],4)))
     print("#############################################\n")
     print("The average feed price is over the last %s samples : %s " % (len(result["median_price_history"]), average(result["median_price_history"])))
